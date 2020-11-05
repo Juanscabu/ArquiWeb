@@ -25,4 +25,10 @@ public abstract class Plan {
 	private Timestamp inicio;
 	@Column
 	private Timestamp fin;
+	public Plan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }

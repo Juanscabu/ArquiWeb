@@ -1,5 +1,13 @@
 package application.repository;
 
-public interface PlanRepository {
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import application.model.Plan;
+
+public interface PlanRepository extends JpaRepository<Plan, Long> {
+
+
 
 }
