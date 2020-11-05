@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import lombok.Data;
+
 @Entity
 public class Vuelo extends Plan {
 	@Column(nullable=false)
