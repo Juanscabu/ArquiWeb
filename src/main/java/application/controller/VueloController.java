@@ -51,8 +51,8 @@ public class VueloController {
 	    		 }
 	    
 	    @GetMapping("/{id}")
-	     public ResponseEntity<Usuario> getUsuario(@PathVariable Long id) throws Exception { 
-	         Optional<Usuario> u = repository.findById(id);
+	     public ResponseEntity<Vuelo> getVuelo(@PathVariable Long id) throws Exception { 
+	         Optional<Vuelo> u = repository.findById(id);
 	         if (u.isPresent()) 
 	        	 return ResponseEntity.ok().body(u.get());
 	         else {
@@ -60,18 +60,18 @@ public class VueloController {
 	         }
 	    }
 
-
+	   
 	   @PutMapping("/{id}")
-	   public ResponseEntity<Usuario> replaceUsuario(@RequestBody Usuario newUsuario, @PathVariable Long id) {
-		   Optional<Usuario> u = repository.findById(id);
-	 	  if (u.isPresent()) {
-	     			return  ResponseEntity.ok().body(u.map(Usuario -> {
-	                 Usuario.setNombre(newUsuario.getNombre());
-	                 return repository.save(Usuario);
+	   public ResponseEntity<Vuelo> replaceVuelo(@RequestBody Vuelo newVuelo, @PathVariable Long id) {
+		   Optional<Vuelo> v = repository.findById(id);
+	 	  if (v.isPresent()) {
+	     			return  ResponseEntity.ok().body(v.map(Vuelo -> {
+	     				Vuelo.setNombre(newVuelo.getNombre());
+	                 return repository.save(Vuelo);
 	             })
 	             .orElseGet(() -> {
-	            	 newUsuario.setId(id);
-	                 return repository.save(newUsuario);
+	            	 newVuelo.setId(id);
+	                 return repository.save(newVuelo);
 	             }));
 	 	  } 
 	 	  else {
@@ -80,7 +80,7 @@ public class VueloController {
 	   }
 	    @DeleteMapping("/{id}")
 	    void deletePlan(@PathVariable Long id) {
-	    	  Optional<Usuario> c = repository.findById(id);
+	    	  Optional<Vuelo> c = repository.findById(id);
 	    	  if (c.isPresent())
 	    		  repository.deleteById(id);
 	    	  else 

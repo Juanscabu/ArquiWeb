@@ -6,7 +6,10 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Vuelo extends Plan {
 	@Column(nullable=false)
 	private Long nroVuelo;
@@ -25,6 +28,7 @@ public class Vuelo extends Plan {
 	public Vuelo() {
 		super();
 	}
+	
 
 
 }
