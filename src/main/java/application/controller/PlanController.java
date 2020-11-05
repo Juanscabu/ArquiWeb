@@ -18,8 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.model.Actividad;
+import application.model.Hospedaje;
 import application.model.Plan;
+import application.model.Vuelo;
+import application.repository.ActividadRepository;
+import application.repository.HospedajeRepository;
 import application.repository.PlanRepository;
+import application.repository.VueloRepository;
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
 @RequestMapping("plan")
@@ -28,10 +34,17 @@ public class PlanController {
 	 @Qualifier("planRepository")
 	    @Autowired
 	    private final PlanRepository repository;
+	  private final VueloRepository repositoryV;
+	  private final HospedajeRepository repositoryH;
+	  private final ActividadRepository repositoryA;
 	
 
-	    public PlanController(@Qualifier("planRepository") PlanRepository repositoryP) {
+	    public PlanController(@Qualifier("planRepository") PlanRepository repositoryP,@Qualifier("vueloRepository") VueloRepository repositoryV, @Qualifier("hospedajeRepository") HospedajeRepository repositoryH, @Qualifier("actividadRepository") ActividadRepository repositoryA) {
 	        this.repository = repositoryP;      
+	        this.repositoryV= repositoryV;
+	        this.repositoryH= repositoryH;
+	        this.repositoryA= repositoryA;
+	        
 	    }
 	
 	    @GetMapping("/")
@@ -57,23 +70,6 @@ public class PlanController {
 	    }
 
 
-	   @PutMapping("/{id}")
-	   public ResponseEntity<Plan> replaceCliente(@RequestBody Plan newPlan, @PathVariable Long id) {
-		   Optional<Plan> c = repository.findById(id);
-	 	  if (c.isPresent()) {
-	     			return  ResponseEntity.ok().body(c.map(Plan -> {
-	                 Plan.setNombre(newPlan.getNombre());
-	                 return repository.save(Plan);
-	             })
-	             .orElseGet(() -> {
-	            	 newPlan.setId(id);
-	                 return repository.save(newPlan);
-	             }));
-	 	  } 
-	 	  else {
-	 		  throw new PlanNotFoundException("El plan a modificar con ese id no existe: " + id);
-	 	  }
-	   }
 	    @DeleteMapping("/{id}")
 	    void deletePlan(@PathVariable Long id) {
 	    	  Optional<Plan> c = repository.findById(id);
@@ -83,6 +79,39 @@ public class PlanController {
 	    		  throw new PlanNotFoundException("El plan a eliminar con ese id no existe: " + id);
 	    }
 	    
+	    @PostMapping("/vuelo")
+	    public Vuelo newVuelo(@RequestBody Vuelo v) {
+	    	Vuelo vuelo= new Vuelo();
+	    	vuelo.setId(v.getId());
+	    	vuelo.setNombre(v.getNombre());
+	    	vuelo.setNroVuelo(v.getNroVuelo());
+	       	vuelo.setCompania(v.getCompania());
+	     	vuelo.setAeropuertoSalida(v.getAeropuertoSalida());
+	     	vuelo.setAeropuertoLlegada(v.getAeropuertoLlegada());
+	     	vuelo.setCodigoReserva(v.getCodigoReserva());
+	     	vuelo.setTiempoEscalas(v.getTiempoEscalas());
+	        return repositoryV.save(v);
+	    }
+	    
+	    @PostMapping("/hospedaje")
+	    public Hospedaje newHospedaje(@RequestBody Hospedaje h) {
+	    	Hospedaje hospedaje= new Hospedaje();
+	    	hospedaje.setId(h.getId());
+	    	hospedaje.setNombre(h.getNombre());
+	    	hospedaje.setCantHabitaciones(h.getCantHabitaciones());
+	    	hospedaje.setBoucher(h.getBoucher());
+	    	hospedaje.setUbicacion(h.getUbicacion());
+	    	return repositoryH.save(h);
+	    }
+	    
+	    @PostMapping("/actividad")
+	    public Actividad newHospedaje(@RequestBody Actividad a) {
+	    	Actividad actividad= new Actividad();
+	    	actividad.setId(a.getId());
+	    	actividad.setNombre(a.getNombre());
+	    	actividad.setUbicacion(a.getUbicacion());
+	    	return repositoryA.save(a);
+	    }
 	    
 	    
 	    @SuppressWarnings("serial")
