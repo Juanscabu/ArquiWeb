@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,8 +44,7 @@ public class PlanController {
 	        this.repository = repositoryP;      
 	        this.repositoryV= repositoryV;
 	        this.repositoryH= repositoryH;
-	        this.repositoryA= repositoryA;
-	        
+	        this.repositoryA= repositoryA;	        
 	    }
 	
 	    @GetMapping("/")
@@ -103,6 +103,16 @@ public class PlanController {
 	    	hospedaje.setUbicacion(h.getUbicacion());
 	    	return repositoryH.save(h);
 	    }
+	    
+	    @GetMapping("/hospedajes")
+	    public ResponseEntity<List<Hospedaje>> getHospedajes() {
+	    	List<Hospedaje>listaHospedajes = repositoryH.findAll();
+	    	 if (!listaHospedajes.isEmpty())
+	    		 return ResponseEntity.ok().body(listaHospedajes);
+	    		 else {
+	    		throw new PlanNotFoundException("No existen Hospedajes");
+	    			 }
+	    		 }
 	    
 	    @PostMapping("/actividad")
 	    public Actividad newHospedaje(@RequestBody Actividad a) {
