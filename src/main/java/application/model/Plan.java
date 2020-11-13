@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+
 import lombok.Data;
 
 @Entity
@@ -25,9 +27,9 @@ public abstract class Plan {
 	private Timestamp inicio;
 	@Column
 	private Timestamp fin;
+	@ManyToOne
+	private Viaje viaje;
 	public Plan() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

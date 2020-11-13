@@ -1,5 +1,7 @@
 package application.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +36,7 @@ public class PlanController {
 
 	 @Qualifier("planRepository")
 	    @Autowired
-	    private final PlanRepository repository;
+	  private final PlanRepository repository;
 	  private final VueloRepository repositoryV;
 	  private final HospedajeRepository repositoryH;
 	  private final ActividadRepository repositoryA;
@@ -81,6 +83,8 @@ public class PlanController {
 	    
 	    @PostMapping("/vuelo")
 	    public Vuelo newVuelo(@RequestBody Vuelo v) {
+	    	
+	    	/*
 	    	Vuelo vuelo= new Vuelo();
 	    	vuelo.setId(v.getId());
 	    	vuelo.setNombre(v.getNombre());
@@ -90,17 +94,16 @@ public class PlanController {
 	     	vuelo.setAeropuertoLlegada(v.getAeropuertoLlegada());
 	     	vuelo.setCodigoReserva(v.getCodigoReserva());
 	     	vuelo.setTiempoEscalas(v.getTiempoEscalas());
+	     	*/
 	        return repositoryV.save(v);
 	    }
 	    
 	    @PostMapping("/hospedaje")
 	    public Hospedaje newHospedaje(@RequestBody Hospedaje h) {
-	    	Hospedaje hospedaje= new Hospedaje();
-	    	hospedaje.setId(h.getId());
-	    	hospedaje.setNombre(h.getNombre());
-	    	hospedaje.setCantHabitaciones(h.getCantHabitaciones());
-	    	hospedaje.setBoucher(h.getBoucher());
-	    	hospedaje.setUbicacion(h.getUbicacion());
+	    	/*
+	    	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			  LocalDate localDate = LocalDate.parse(fecha, formatter); 
+			  */
 	    	return repositoryH.save(h);
 	    }
 	    

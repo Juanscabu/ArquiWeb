@@ -59,6 +59,16 @@ public class UsuarioController {
 	        	 throw new PlanNotFoundException("El usuario con id : " + id + "no existe");
 	         }
 	    }
+	    
+	    @PostMapping("/")
+ 		public Usuario newUsuario(@RequestBody Usuario u) {
+ 			Usuario usuario = new Usuario();
+ 			usuario.setId(u.getId());
+ 			usuario.setNombre(u.getNombre());
+ 			usuario.setEmail(u.getEmail());
+ 			usuario.setContrasenia(u.getContrasenia());
+ 			return repository.save(usuario);
+ 		}
 
 
 	   @PutMapping("/{id}")

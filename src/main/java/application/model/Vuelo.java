@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import lombok.Data;
 
 @Entity
 @Data
+@PrimaryKeyJoinColumn(name = "VueloId")
 public class Vuelo extends Plan {
 	@Column(nullable=false)
 	private Long nroVuelo;

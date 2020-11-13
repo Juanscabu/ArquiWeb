@@ -59,6 +59,7 @@ public class VueloController {
 	        	 throw new PlanNotFoundException("El usuario con id : " + id + "no existe");
 	         }
 	    }
+	    
 
 	   
 	   @PutMapping("/{id}")
