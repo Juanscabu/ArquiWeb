@@ -18,11 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-import application.controller.PlanController.PlanNotFoundException;
-import application.model.Plan;
+import application.controller.ViajeController.ViajeNotFoundException;
 import application.model.Usuario;
-import application.repository.PlanRepository;
 import application.repository.UsuarioRepository;
 
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
@@ -45,7 +42,7 @@ public class UsuarioController {
 	    	 if (!listaPlanes.isEmpty())
 	    		 return ResponseEntity.ok().body(listaPlanes);
 	    		 else {
-	    		throw new PlanNotFoundException("No existen planes");
+	    		throw new UsuarioNotFoundException("No existen planes");
 	    			 }
 	    		 }
 	    
@@ -56,7 +53,7 @@ public class UsuarioController {
 	         if (u.isPresent()) 
 	        	 return ResponseEntity.ok().body(u.get());
 	         else {
-	        	 throw new PlanNotFoundException("El usuario con id : " + id + "no existe");
+	        	 throw new UsuarioNotFoundException("El usuario con id : " + id + "no existe");
 	         }
 	    }
 	    
@@ -85,7 +82,7 @@ public class UsuarioController {
 	             }));
 	 	  } 
 	 	  else {
-	 		  throw new PlanNotFoundException("El usuario a modificar con ese id no existe: " + id);
+	 		  throw new UsuarioNotFoundException("El usuario a modificar con ese id no existe: " + id);
 	 	  }
 	   }
 	    @DeleteMapping("/{id}")
@@ -94,16 +91,26 @@ public class UsuarioController {
 	    	  if (c.isPresent())
 	    		  repository.deleteById(id);
 	    	  else 
-	    		  throw new PlanNotFoundException("El usuario a eliminar con ese id no existe: " + id);
+	    		  throw new UsuarioNotFoundException("El usuario a eliminar con ese id no existe: " + id);
+	    }
+	    
+	    @GetMapping("/masViajeros")
+	    public ResponseEntity<Iterable<Usuario>> getUsuariosMasViajes() {
+	    	Iterable<Usuario> masViajeros = repository.getUsuariosMasViajes();
+	    		if (masViajeros.iterator().hasNext())
+	    			return ResponseEntity.ok().body(masViajeros);
+	    		else {
+	    			throw new ViajeNotFoundException("No existen Usuarios");
+	    		}
 	    }
 	    
 	    
 	    
 	    @SuppressWarnings("serial")
 	    @ResponseStatus(HttpStatus.NOT_FOUND)    
-	    public static class PlanNotFoundException extends RuntimeException {
+	    public static class UsuarioNotFoundException extends RuntimeException {
 	    		private String message;
-	    	  public PlanNotFoundException(String exception) {
+	    	  public UsuarioNotFoundException(String exception) {
 	    	    super(exception);
 	    	    this.message = exception;
 	    	  }

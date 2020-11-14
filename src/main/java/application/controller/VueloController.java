@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import application.controller.UsuarioController.PlanNotFoundException;
+import application.controller.UsuarioController.UsuarioNotFoundException;
 import application.model.Usuario;
 import application.model.Vuelo;
 import application.repository.UsuarioRepository;

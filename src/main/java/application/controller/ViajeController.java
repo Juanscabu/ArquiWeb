@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -93,6 +92,16 @@ public class ViajeController {
 		}
 		else { 
 			throw new ViajeNotFoundException("El Usuario de ese id no existe: " + id);
+		}
+	}
+	
+	@GetMapping("/zonasMasVisitadas")
+	public ResponseEntity<Iterable<Object>> getZonasMasVisitadas() {
+		Iterable<Object> zonasVisitadas = repositoryViaje.getZonasMasVisitadas();
+		if (zonasVisitadas.iterator().hasNext())
+			return ResponseEntity.ok().body(zonasVisitadas);
+		else {
+			throw new ViajeNotFoundException("No existen viajes");
 		}
 	}
 
