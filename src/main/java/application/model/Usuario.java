@@ -31,6 +31,8 @@ public class Usuario {
 	@JsonIgnore
 	private List<Viaje> viajes;
 	
+	private transient String token;
+	
 	public Usuario() {
 	}
 }
