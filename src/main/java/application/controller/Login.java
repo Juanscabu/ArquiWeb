@@ -21,12 +21,17 @@ public class Login {
 	@PostMapping("/login")
 	public Usuario login(@RequestParam("email") String email, @RequestParam("contrasenia") String contrasenia) {
 		//En el caso normal debería chequear que el usuario exista.
-		String token = getJWTToken(email);
-		Usuario user = new Usuario();
-		user.setEmail(email);
-		user.setToken(token);		
-		return user;
-
+		
+//		if (){
+			String token = getJWTToken(email);
+			Usuario user = new Usuario();
+			user.setEmail(email);
+			user.setToken(token);		
+			return user;
+//		}
+//		else {
+			
+//		}
 	}
 
 	//Genero el token.
