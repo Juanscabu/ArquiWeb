@@ -39,6 +39,7 @@ public class ViajeController {
 		this.repositoryViaje = repositoryViaje;     
 		this.repositoryUsuario = repositoryUsuario;    
 	}  
+	
 	@GetMapping("/all")
 	public ResponseEntity<List<Viaje>> getViajes() {
 		List<Viaje> listaViajes = repositoryViaje.findAll();

@@ -40,19 +40,23 @@ class LoadDatabase {
         	}
         };
     }
+	/*
 	@Bean
-    CommandLineRunner initViajes(@Qualifier("viajeRepository") ViajeRepository viajeRepository) {
+    CommandLineRunner initViajes(@Qualifier("viajeRepository") ViajeRepository viajeRepository,@Qualifier("usuarioRepository") UsuarioRepository usuarioRepository) {
 		  return args -> {
 	        	try {
 	        		CSVParser viajesCSV = CSVFormat.DEFAULT.withHeader().parse(new FileReader("csv/viajes.csv"));
-	        		for(CSVRecord row: viajesCSV) {
-	        			System.out.println("Preloading " + viajeRepository.save(new Viaje(row.get("nombre"),row.get("ciudadDestino"),new Date(new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaInicio")).getTime()),new Date(new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaFin")).getTime()),row.get("descripcion"))));
+	        		for(CSVRecord row: viajesCSV) { 
+	        			Usuario u = usuarioRepository.findById(Long.parseLong(row.get("usuario"))).get();
+	        			System.out.println("Preloading " + viajeRepository.save(new Viaje(row.get("nombre"),row.get("ciudadDestino"),u,new Date(new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaInicio")).getTime()),new Date(new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaFin")).getTime()),row.get("descripcion"))));
 	        		}
+	        		
 	        	} catch (IOException e) {
 	        		e.printStackTrace();
 	        	}
 	        };
 	    }
+	    */
 	/*@Bean
     CommandLineRunner initPlanes(@Qualifier("planRepository") PlanRepository billRepository, @Qualifier("clientRepository") ClientRepository clientRepository) {
         return args -> {
