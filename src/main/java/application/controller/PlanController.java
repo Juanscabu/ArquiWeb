@@ -1,7 +1,6 @@
 package application.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -14,13 +13,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import application.model.Actividad;
 import application.model.Hospedaje;
 import application.model.Plan;
@@ -73,7 +70,7 @@ public class PlanController {
 
 
 	    @DeleteMapping("/{id}")
-	    void deletePlan(@PathVariable Long id) {
+	   public void deletePlan(@PathVariable Long id) {
 	    	  Optional<Plan> c = repository.findById(id);
 	    	  if (c.isPresent())
 	    		  repository.deleteById(id);
@@ -82,29 +79,31 @@ public class PlanController {
 	    }
 	    
 	    @PostMapping("/vuelo")
-	    public Vuelo newVuelo(@RequestBody Vuelo v) {
+	    public ResponseEntity<Vuelo> newVuelo(@RequestBody Vuelo v) {
+	    	 Optional<Plan> nuevoVuelo = repository.findById(v.getId());
+	    	  if (!nuevoVuelo.isPresent())
+	    		  return  ResponseEntity.ok().body(repositoryV.save(v));
 	    	
-	    	/*
-	    	Vuelo vuelo= new Vuelo();
-	    	vuelo.setId(v.getId());
-	    	vuelo.setNombre(v.getNombre());
-	    	vuelo.setNroVuelo(v.getNroVuelo());
-	       	vuelo.setCompania(v.getCompania());
-	     	vuelo.setAeropuertoSalida(v.getAeropuertoSalida());
-	     	vuelo.setAeropuertoLlegada(v.getAeropuertoLlegada());
-	     	vuelo.setCodigoReserva(v.getCodigoReserva());
-	     	vuelo.setTiempoEscalas(v.getTiempoEscalas());
-	     	*/
-	        return repositoryV.save(v);
+	    	  throw new PlanNotFoundException("El vuelo con ese id ya existe : " + v.getId());
 	    }
 	    
+	    @GetMapping("/vuelos")
+	    public ResponseEntity<List<Vuelo>> getVuelos() {
+	    	List<Vuelo> listaVuelos = repositoryV.findAll();
+	    	 if (!listaVuelos.isEmpty())
+	    		 return ResponseEntity.ok().body(listaVuelos);
+	    		 else {
+	    		throw new PlanNotFoundException("No existen Vuelos");
+	    			 }
+	    		 }
+	    
 	    @PostMapping("/hospedaje")
-	    public Hospedaje newHospedaje(@RequestBody Hospedaje h) {
-	    	/*
-	    	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			  LocalDate localDate = LocalDate.parse(fecha, formatter); 
-			  */
-	    	return repositoryH.save(h);
+	    public ResponseEntity<Hospedaje > newHospedaje(@RequestBody Hospedaje h) {
+	   	 Optional<Hospedaje> nuevoHospedaje = repositoryH.findById(h.getId());
+	   	 if (!nuevoHospedaje.isPresent())
+   		  return  ResponseEntity.ok().body(repositoryH.save(h));
+   	
+   	  throw new PlanNotFoundException("El vuelo con ese id ya existe : " + h.getId());
 	    }
 	    
 	    @GetMapping("/hospedajes")
@@ -118,13 +117,23 @@ public class PlanController {
 	    		 }
 	    
 	    @PostMapping("/actividad")
-	    public Actividad newHospedaje(@RequestBody Actividad a) {
-	    	Actividad actividad= new Actividad();
-	    	actividad.setId(a.getId());
-	    	actividad.setNombre(a.getNombre());
-	    	actividad.setUbicacion(a.getUbicacion());
-	    	return repositoryA.save(a);
+	    public ResponseEntity<Actividad> newActividad(@RequestBody Actividad a) {
+	    	 Optional<Plan> nuevoActividad = repository.findById(a.getId());
+	    	  if (!nuevoActividad.isPresent())
+	    		  return  ResponseEntity.ok().body(repositoryA.save(a));
+	    	
+	    	  throw new PlanNotFoundException("El vuelo con ese id ya existe : " + a.getId());
 	    }
+	    
+	    @GetMapping("/actividades")
+	    public ResponseEntity<List<Actividad>> getActividades() {
+	    	List<Actividad>listaActividades = repositoryA.findAll();
+	    	 if (!listaActividades.isEmpty())
+	    		 return ResponseEntity.ok().body(listaActividades);
+	    		 else {
+	    		throw new PlanNotFoundException("No existen Hospedajes");
+	    			 }
+	    		 }
 	    
 	    
 	    @SuppressWarnings("serial")

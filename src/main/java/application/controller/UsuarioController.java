@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import application.controller.PlanController.PlanNotFoundException;
 import application.controller.ViajeController.ViajeNotFoundException;
+import application.model.Plan;
 import application.model.Usuario;
 import application.repository.UsuarioRepository;
 
@@ -58,13 +61,12 @@ public class UsuarioController {
 	    }
 	    
 	    @PostMapping("/")
- 		public Usuario newUsuario(@RequestBody Usuario u) {
- 			Usuario usuario = new Usuario();
- 			usuario.setId(u.getId());
- 			usuario.setNombre(u.getNombre());
- 			usuario.setEmail(u.getEmail());
- 			usuario.setContrasenia(u.getContrasenia());
- 			return repository.save(usuario);
+ 		public ResponseEntity<Usuario> newUsuario(@RequestBody Usuario u) {
+ 			 Optional<Usuario> nuevoUsuario = repository.findById(u.getId());
+	    	  if (!nuevoUsuario.isPresent())
+	    		  return  ResponseEntity.ok().body(repository.save(u));
+	    	
+	    	  throw new PlanNotFoundException("El vuelo con ese id ya existe : " + u.getId());
  		}
 
 
