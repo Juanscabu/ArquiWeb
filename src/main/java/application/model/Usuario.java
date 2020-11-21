@@ -35,4 +35,12 @@ public class Usuario {
 	
 	public Usuario() {
 	}
+
+	public Usuario(String nombre, String email, String contrasenia) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.contrasenia = contrasenia;
+	}
+	
 }

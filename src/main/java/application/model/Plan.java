@@ -29,8 +29,16 @@ public abstract class Plan {
 	private Timestamp fin;
 	@ManyToOne
 	private Viaje viaje;
+	
 	public Plan() {
 	}
-	
+
+	public Plan(String nombre, Timestamp inicio, Timestamp fin, Viaje viaje) {
+		super();
+		this.nombre = nombre;
+		this.inicio = inicio;
+		this.fin = fin;
+		this.viaje = viaje;
+	}
 	
 }

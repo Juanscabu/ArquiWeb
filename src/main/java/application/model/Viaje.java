@@ -41,5 +41,14 @@ public class Viaje {
 	public Viaje() {
 	}
 
+	public Viaje(String nombre, String ciudadDestino, Date fechaInicio, Date fechaFin,
+			String descripcion) {
+		super();
+		this.nombre = nombre;
+		this.ciudadDestino = ciudadDestino;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.descripcion = descripcion;
+	}
 
 }
