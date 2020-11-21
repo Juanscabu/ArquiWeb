@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class ViajeController {
 		this.repositoryViaje = repositoryViaje;     
 		this.repositoryUsuario = repositoryUsuario;    
 	}  
-	@GetMapping("/")
+	@GetMapping("/all")
 	public ResponseEntity<List<Viaje>> getViajes() {
 		List<Viaje> listaViajes = repositoryViaje.findAll();
 		if (!listaViajes.isEmpty())
@@ -59,9 +60,11 @@ public class ViajeController {
 		return repositoryViaje.save(v);
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Viaje> getViaje(@PathVariable Long id) throws Exception { 
+	@GetMapping("/")
+	public ResponseEntity<Viaje> getViaje() throws Exception { 
+		Long id = Long.parseLong((String) SecurityContextHolder.getContext().getAuthentication().getDetails());
 		Optional<Viaje> v = repositoryViaje.findById(id);
+		
 		if (v.isPresent()) 
 			return ResponseEntity.ok().body(v.get());
 		else {
@@ -136,6 +139,7 @@ public class ViajeController {
 		else 
 			throw new ViajeNotFoundException("El viaje a eliminar con ese id no existe: " + id);
 	}
+	
 	@SuppressWarnings("serial")
 	@ResponseStatus(HttpStatus.NOT_FOUND)    
 	public static class ViajeNotFoundException extends RuntimeException {
