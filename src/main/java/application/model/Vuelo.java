@@ -1,7 +1,7 @@
 package application.model;
 
-import java.sql.Timestamp;
-import java.util.List;
+import java.sql.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,8 +27,18 @@ public class Vuelo extends Plan {
 	private Long tiempoEscalas ;
 	@Column(nullable=false)
 	private String infoAeronave;
-	public Vuelo() {
-		super();
+	
+
+	public Vuelo( String nombre, Date inicio, Date fin, Viaje viaje, Long nroVuelo, String compania, String aeropuertoSalida, String aeropuertoLlegada,
+			String codigoReserva, Long tiempoEscalas, String infoAeronave) {
+		super( nombre, inicio, fin, viaje);
+		this.nroVuelo = nroVuelo;
+		this.compania = compania;
+		this.aeropuertoSalida = aeropuertoSalida;
+		this.aeropuertoLlegada = aeropuertoLlegada;
+		this.codigoReserva = codigoReserva;
+		this.tiempoEscalas = tiempoEscalas;
+		this.infoAeronave = infoAeronave;
 	}
 	
 

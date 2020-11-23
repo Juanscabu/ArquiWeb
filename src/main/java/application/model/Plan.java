@@ -1,4 +1,5 @@
 package application.model;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -24,21 +25,24 @@ public abstract class Plan {
 	@Column
 	private String nombre;
 	@Column
-	private Timestamp inicio;
+	private Date inicio;
 	@Column
-	private Timestamp fin;
+	private Date fin;
 	@ManyToOne
 	private Viaje viaje;
 	
 	public Plan() {
 	}
 
-	public Plan(String nombre, Timestamp inicio, Timestamp fin, Viaje viaje) {
+	public Plan( String nombre, Date inicio, Date fin, Viaje viaje) {
 		super();
+
 		this.nombre = nombre;
 		this.inicio = inicio;
 		this.fin = fin;
 		this.viaje = viaje;
 	}
+	
+	
 	
 }

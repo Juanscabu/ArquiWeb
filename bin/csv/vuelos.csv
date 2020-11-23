@@ -1,0 +1,101 @@
+id,nombre,inicio,fin,viaje,nroVuelo,compania,aeropuertoSalida,aeropuertoLlegada,codigoReserva,tiempoEscalas,infoAeronave
+1,Ut Company,22/04/2020,27/12/2020,30,478,Ipsum Suspendisse Inc.,Romania,Sint Maarten,16520221 5363,6,YCJ02SDQ7DH
+2,Adipiscing Corporation,07/05/2020,13/03/2021,56,169,Proin Velit Foundation,Mauritius,Lesotho,16470225 4246,5,ZDH52OQO7BW
+3,Bibendum Donec Felis Incorporated,20/01/2020,05/01/2021,69,788,Ante Maecenas Industries,Panama,Tunisia,16970713 3451,5,CEV28WWN6IS
+4,Lacinia Sed Congue Inc.,29/08/2020,07/10/2021,54,608,Et Consulting,Guatemala,Cuba,16800325 3625,6,KWL68HPM6PB
+5,Phasellus Nulla Institute,02/09/2020,24/08/2021,55,235,Aliquam Foundation,Qatar,Gambia,16671020 4907,5,NTI15LRB9AP
+6,Sit Amet Metus Industries,18/02/2020,01/06/2021,85,279,Nullam Lobortis Quam Associates,Burundi,Liechtenstein,16471005 7284,3,PJA02GFG6GO
+7,Et Magnis Dis Industries,03/10/2020,09/05/2021,87,773,Adipiscing Elit Corporation,Luxembourg,"Bonaire, Sint Eustatius and Saba",16501210 1910,1,KDR44TGM1OO
+8,Odio Tristique Limited,02/03/2020,23/05/2021,50,866,Lacinia Sed Limited,Dominican Republic,Latvia,16970728 8982,4,CSO20YXJ0DO
+9,Ac PC,24/09/2020,29/11/2020,39,193,Parturient Corp.,Chad,"Virgin Islands, United States",16360603 0264,5,NTO31EKT8SB
+10,Dui Incorporated,04/08/2020,03/03/2021,68,764,Diam Corp.,Tajikistan,Israel,16830829 0041,6,ROV66GZI4BT
+11,Non Leo Corporation,16/03/2020,03/03/2021,95,134,Amet Luctus Incorporated,Falkland Islands,Yemen,16111207 3240,4,UNI17MUC7KJ
+12,Facilisis Non Limited,24/04/2020,28/10/2021,44,428,Enim Gravida Ltd,Honduras,Azerbaijan,16550528 7119,5,VZT71GVP6CY
+13,Fringilla Ornare Consulting,13/06/2020,24/11/2020,10,544,Feugiat Lorem Limited,Venezuela,Madagascar,16100824 1653,6,VQW17KIY1BG
+14,Donec Limited,17/10/2020,28/07/2021,60,677,Luctus Limited,Falkland Islands,Wallis and Futuna,16241013 1383,5,JOD15LWM2VV
+15,Eleifend Vitae Institute,16/07/2020,10/06/2021,83,274,Neque Inc.,Cocos (Keeling) Islands,Kazakhstan,16200228 0028,4,QIG42KRA8FT
+16,Aliquet PC,05/12/2020,15/07/2021,84,798,Arcu Nunc Mauris Limited,Switzerland,Zimbabwe,16420325 7631,4,RMW38IUO0QX
+17,Aliquam Incorporated,01/01/2020,20/01/2021,5,354,Dictum Corp.,Anguilla,Saint Barthélemy,16220329 8936,5,OSB01JYO9DD
+18,Quis Institute,19/03/2020,05/05/2021,62,156,Magna Ut Tincidunt Associates,Hungary,Germany,16181009 4506,2,CRP75UHR7NF
+19,Ornare Industries,05/02/2020,23/03/2021,11,731,Odio Etiam Corporation,Laos,French Guiana,16271128 0590,1,NDE03GHH0VH
+20,Vulputate Posuere Ltd,06/04/2020,03/07/2021,46,677,Lacus Nulla Tincidunt Corp.,Sweden,Norway,16751128 1433,6,DAB27ZDC2FC
+21,Posuere At Velit Incorporated,14/04/2020,08/02/2021,83,798,Pede Blandit LLP,Colombia,Saint Pierre and Miquelon,16100224 2236,4,AII56KXJ3PA
+22,Nullam Inc.,15/12/2019,05/11/2021,32,472,Et Rutrum Eu Foundation,Solomon Islands,Pitcairn Islands,16040328 2353,6,WCW83KSC9FO
+23,Ante Ipsum Primis Industries,18/10/2020,04/06/2021,18,428,Etiam Laoreet Company,Cambodia,Saint Kitts and Nevis,16120901 2119,5,SIA89KYU0XJ
+24,In Tincidunt LLP,08/05/2020,10/01/2021,10,691,Ut Ipsum Ac Industries,Cameroon,Yemen,16601223 4404,3,OYS59YMW5PY
+25,Malesuada Ut Sem LLP,29/08/2020,15/11/2020,3,366,Neque Sed LLP,Sudan,France,16551211 9206,2,MAV58SOG7HU
+26,At Risus Nunc Ltd,07/04/2020,07/01/2021,48,215,Montes Ltd,Cape Verde,Falkland Islands,16990807 7374,4,SFW35HHC6GU
+27,Enim Mauris Institute,17/09/2020,09/05/2021,45,246,Integer Mollis Integer Corp.,United Arab Emirates,Russian Federation,16830205 4773,4,LQB47DOB8MX
+28,Et Eros Company,19/09/2020,21/06/2021,34,205,Elit Pretium Ltd,Benin,Latvia,16220704 8147,1,IRV37ESW1PD
+29,Nec Incorporated,18/05/2020,06/11/2021,23,601,Cursus LLP,Sao Tome and Principe,Gabon,16601215 5252,3,DKZ99YYI7DH
+30,Integer PC,12/06/2019,04/07/2021,31,478,Non Ante Bibendum Corp.,Thailand,"Palestine, State of",16980624 4019,1,LCR63GHH8XP
+31,Ut Tincidunt LLC,06/10/2020,21/04/2021,33,401,Purus Duis Associates,Cuba,Trinidad and Tobago,16210918 9254,3,EYF47ZGZ6SD
+32,At Foundation,22/10/2020,22/05/2021,35,702,Sociosqu Ad Litora Limited,Tuvalu,Guyana,16330406 9341,2,AJK05JVB1XY
+33,Dui Cras Pellentesque Ltd,13/08/2020,12/02/2020,41,640,Nullam Scelerisque Corp.,Belize,"Congo, the Democratic Republic of the",16570501 1996,2,EWC92PMB3EX
+34,Sit Amet LLP,12/05/2019,24/11/2020,17,225,Facilisis Facilisis LLC,Marshall Islands,Zimbabwe,16550428 2921,6,TUU32HIQ6YO
+35,Ligula Eu Enim Consulting,12/02/2019,24/12/2020,66,982,Taciti Institute,Greece,San Marino,16790310 8772,4,BYF21BPC4CE
+36,Quisque Imperdiet Erat PC,23/06/2020,03/08/2021,95,299,Malesuada Malesuada Incorporated,Austria,Tokelau,16911019 4157,6,OQK80WFJ5TS
+37,Aenean Company,23/03/2020,18/03/2021,21,488,Nec Inc.,Morocco,Cook Islands,16140114 7036,2,MZY08VQN5HT
+38,Eros Nec Tellus Corporation,27/07/2020,10/03/2021,75,274,Aenean Eget Metus Associates,Fiji,Swaziland,16991226 1857,3,HQL87XJI3RR
+39,Ut Foundation,13/01/2020,25/11/2020,75,636,Volutpat Nunc Company,Albania,Syria,16890808 6278,5,PAO95GRH6RE
+40,Ut Company,15/12/2019,24/10/2021,92,268,Consectetuer Adipiscing PC,Cook Islands,Belize,16290414 1179,5,BEZ15YGO8QU
+41,Cras PC,20/05/2020,11/11/2020,77,281,Ligula Aenean Euismod Corp.,Wallis and Futuna,Peru,16220923 6377,4,SXK50MQN8ZN
+42,Ut Sagittis Limited,15/07/2020,11/01/2021,50,288,Enim Diam Vel Corp.,Saint Pierre and Miquelon,Chile,16171105 1225,6,DSO72LQW2UQ
+43,Aliquam Enim Nec Industries,31/05/2020,25/05/2021,17,369,Curabitur PC,Maldives,Tanzania,16140920 7246,5,NRO37OXY5XO
+44,Dolor Nulla Company,17/06/2020,31/08/2021,87,821,Parturient Montes Nascetur Industries,Netherlands,Iraq,16960512 4735,2,VYP41FAB7HK
+45,Fames Ac Turpis PC,31/05/2020,19/07/2021,29,881,Tincidunt Neque Inc.,Cook Islands,Fiji,16250526 2465,3,SGB11IAT7PE
+46,Quam Pellentesque Habitant PC,20/10/2020,28/08/2021,44,830,Feugiat Sed Nec Limited,Bulgaria,Peru,16531212 8647,3,FHH62TCT4XW
+47,Dis Parturient Associates,16/12/2019,12/11/2020,40,375,Elementum Purus Accumsan Ltd,Luxembourg,Egypt,16390620 3835,3,ANO25MAO2AP
+48,Vestibulum Inc.,07/08/2020,15/11/2020,54,236,Imperdiet Associates,Spain,Austria,16251026 2245,4,OUW02WSN8KN
+49,At Arcu Vestibulum Corporation,25/11/2019,07/09/2021,87,290,Cubilia Corporation,Afghanistan,Saudi Arabia,16460502 1841,2,NOG54KJU8QO
+50,Sapien LLC,08/09/2020,14/06/2021,17,484,Lorem Sit Limited,French Guiana,Georgia,16850621 3530,2,HWI89GAA0BC
+51,Est Limited,03/11/2020,07/11/2021,58,693,Ornare Placerat Orci Foundation,Bolivia,"Virgin Islands, United States",16000621 2104,4,PUZ48NGF1QI
+52,Feugiat Non Consulting,30/01/2020,19/11/2021,22,571,Malesuada Fames LLC,United Arab Emirates,Isle of Man,16830319 8363,5,UML31ZLB9BU
+53,Ornare Facilisis Eget Inc.,29/08/2020,24/08/2021,92,694,Urna Company,Rwanda,Ecuador,16680907 7248,3,ZBN37WSV4XQ
+54,Augue Scelerisque Mollis Institute,18/12/2019,13/09/2021,65,702,Duis Volutpat Industries,Svalbard and Jan Mayen Islands,Guinea-Bissau,16091026 6154,4,CRP93HPC7LV
+55,Phasellus Ornare Fusce Foundation,24/06/2020,16/05/2021,10,676,Lobortis Class Foundation,Albania,Uzbekistan,16230220 4249,3,LXW72VNH8PI
+56,Ante Bibendum Ullamcorper Corporation,01/08/2020,16/05/2021,28,555,Amet Inc.,Greenland,Faroe Islands,16761211 5241,5,EHP54FMH6RI
+57,Vel Faucibus LLC,23/09/2020,19/12/2020,16,292,Sociosqu Incorporated,"Virgin Islands, British",Azerbaijan,16000303 2042,2,EHE72JYS6LV
+58,Feugiat Institute,28/06/2020,26/11/2020,89,598,Inceptos Consulting,Morocco,Uruguay,16580323 0019,1,YMP38TAD2IB
+59,Aliquam Erat Volutpat LLC,29/09/2020,26/02/2021,76,583,Et Commodo Company,Cook Islands,Georgia,16440122 5232,2,TLJ16KDJ3KF
+60,Arcu Vel LLP,18/01/2020,04/03/2021,88,205,Amet Risus Donec Foundation,United States,Saint Vincent and The Grenadines,16920828 1502,3,QHZ52IKG1BG
+61,Dolor Sit PC,10/03/2020,10/04/2021,17,500,Et Arcu Associates,Eritrea,Barbados,16750614 8100,5,UAS30TMX6IF
+62,Ultricies Sem PC,30/03/2020,09/03/2021,34,890,Cras Consulting,Cape Verde,Italy,16281012 7577,4,UZV27HJH2NK
+63,Nunc Est Mollis Corp.,29/04/2020,18/12/2020,58,112,Vel Mauris Ltd,Bouvet Island,Central African Republic,16580822 7788,6,RWW16NDV0ES
+64,At Pretium Aliquet Consulting,10/08/2020,24/09/2021,99,472,Fusce Mollis Associates,Guinea-Bissau,Romania,16920922 8205,3,OCG90TPG3IT
+65,Pede Et Consulting,24/02/2020,31/10/2021,90,794,Eget Massa Suspendisse Industries,"Saint Helena, Ascension and Tristan da Cunha",French Southern Territories,16170607 5247,1,RRV92END4YZ
+66,Amet Massa Quisque Foundation,11/01/2020,23/02/2021,77,631,Integer Sem PC,Mauritius,Zimbabwe,16370613 4982,1,BGN72TCJ8OE
+67,Lectus Ante Dictum Inc.,24/01/2020,26/07/2021,87,681,Aliquet Phasellus Institute,Cambodia,Tokelau,16730706 1155,3,ZAS79HGV7HU
+68,Sed Libero Proin Corporation,15/08/2020,04/02/2021,4,363,Sed Consequat Auctor Associates,Niger,Timor-Leste,16460912 7107,2,IVM16ZRE7ML
+69,Nunc Mauris Limited,23/11/2019,03/12/2021,89,766,Tincidunt Inc.,Bosnia and Herzegovina,South Africa,16550415 8063,1,EVL49APA3JV
+70,Ante Institute,01/10/2020,28/02/2021,31,906,Dolor Nonummy Ac Limited,Peru,Belize,16231122 1606,5,EHD49HQM4GJ
+71,Consequat Purus Maecenas Ltd,07/06/2020,03/12/2021,60,567,Proin Mi Aliquam Company,Macao,Papua New Guinea,16820111 2037,1,JJY17JPU1AZ
+72,Vulputate Eu Foundation,12/12/2019,31/12/2020,71,271,Sociis Natoque Company,Wallis and Futuna,Tanzania,16350925 5471,5,XAR03RJC3LX
+73,Sem PC,15/07/2020,25/12/2020,75,148,In Nec Incorporated,Timor-Leste,Saint Barthélemy,16630503 6730,3,AZW99ORD6CA
+74,Aliquam Industries,20/01/2020,22/07/2021,39,506,Cursus Industries,Greece,Serbia,16030310 5019,6,JLS27OXD9OM
+75,Imperdiet Erat Nonummy Corporation,04/09/2020,03/06/2021,91,766,Nec Imperdiet Nec LLC,Syria,Uganda,16210414 9857,3,DPB94GIA8KZ
+76,Vehicula Aliquet Libero Institute,07/07/2020,26/08/2021,74,295,Tempor Diam Inc.,Sint Maarten,Canada,16580730 8928,3,GZL36RKY9NO
+77,Proin Limited,21/03/2020,26/11/2020,13,878,A Corporation,Timor-Leste,Saint Kitts and Nevis,16270927 3367,2,MEW40SDD6NK
+78,Rhoncus Consulting,30/09/2020,29/06/2021,62,975,Scelerisque Foundation,Ukraine,Curaçao,16831025 5925,4,QLD38OFT7RS
+79,Rhoncus Nullam Velit Limited,16/01/2020,13/04/2021,24,300,Sed Foundation,Austria,Pitcairn Islands,16260503 2941,5,UOS19SJU5XR
+80,Malesuada Foundation,10/03/2020,22/08/2021,34,392,Quisque Purus Inc.,Mongolia,Belgium,16860603 2129,5,YBU45SBT2KX
+81,Orci Luctus Corporation,02/05/2020,08/01/2021,28,783,Mauris Sapien Cursus Corporation,Nicaragua,Antarctica,16521230 6053,6,FXH79CAB3WD
+82,Ac Mattis Incorporated,29/04/2020,01/12/2021,5,331,Eleifend Nec Company,Tuvalu,Antarctica,16201206 9486,6,EPH96QRT0JA
+83,Luctus Foundation,17/04/2020,09/11/2021,91,353,Vestibulum Neque Sed Corporation,Isle of Man,Jersey,16620707 2940,5,KBU24HAO8IV
+84,Eleifend Corporation,08/07/2020,14/01/2021,57,732,Diam Proin Dolor Incorporated,French Southern Territories,Tajikistan,16150817 2291,4,XAW92EIK8DS
+85,Consectetuer Industries,10/05/2020,15/06/2021,92,989,Egestas LLC,Guam,Heard Island and Mcdonald Islands,16421124 1973,1,WBF30XNZ2NQ
+86,Et Magnis Consulting,27/04/2020,04/03/2021,21,471,Proin Ultrices Duis LLP,Colombia,Tokelau,16700923 6196,3,PKX65KVX5SQ
+87,Lacus Cras Corporation,03/06/2020,14/11/2020,64,691,Quam Quis Diam Inc.,United States Minor Outlying Islands,Qatar,16720203 2475,2,RJS67QHZ0LM
+88,Leo Elementum LLP,01/06/2020,14/11/2020,25,314,Ac Libero Industries,"Congo, the Democratic Republic of the",Angola,16170707 6210,4,ASJ20QRR9AG
+89,Ligula Nullam Corporation,19/01/2020,04/12/2021,56,748,Pharetra Corporation,Tajikistan,Saint Pierre and Miquelon,16691224 6805,1,LXY74UDX9GR
+90,Velit LLP,24/08/2020,07/07/2021,44,519,Sed Institute,Saint Lucia,Costa Rica,16290708 5597,6,ANB96WAP7MY
+91,Egestas Aliquam Fringilla Corporation,18/10/2020,25/01/2021,19,354,Non Sollicitudin A Ltd,Azerbaijan,Chile,16160219 1684,5,MTX92SXZ0MN
+92,Vel Company,17/06/2020,11/11/2021,61,348,Ante Dictum Cursus Consulting,Senegal,Taiwan,16400928 7592,3,RHH92YLT9QA
+93,Porttitor Tellus Company,23/07/2020,27/01/2021,63,993,Tempus Mauris Erat Incorporated,French Southern Territories,Argentina,16540406 2209,4,VTO86XZR3BF
+94,Mauris LLC,08/05/2020,21/05/2021,91,467,Neque Tellus Limited,Algeria,Maldives,16120222 2897,4,DXL11BVD9OW
+95,Mattis Ornare LLP,12/08/2019,20/08/2021,94,635,Per Conubia PC,Albania,Guatemala,16170211 7522,1,YJP58VDR7HD
+96,Mauris Nulla Corp.,26/11/2019,21/04/2021,3,205,Pede Blandit Congue LLC,Canada,Slovenia,16721023 1887,4,HBY45QDZ1ZE
+97,Suspendisse Aliquet Sem Inc.,05/09/2020,07/03/2021,54,215,Non Lobortis LLP,Central African Republic,Maldives,16640819 8353,5,IIT13KZM7QP
+98,Cursus Integer PC,21/03/2020,19/07/2021,61,852,Volutpat Ornare Foundation,Honduras,Israel,16561227 2467,5,YKT23AYO7QQ
+99,Nibh Corporation,12/11/2019,25/08/2021,49,707,Posuere Enim Nisl Consulting,Russian Federation,Uganda,16710216 3586,6,TNS25XQH1YC
+100,Convallis Ligula Associates,21/08/2020,23/02/2021,95,761,At Pede Cras Inc.,Kenya,"Saint Helena, Ascension and Tristan da Cunha",16480503 8181,1,JAQ31FBK2YM

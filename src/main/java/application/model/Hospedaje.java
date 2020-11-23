@@ -1,5 +1,7 @@
 package application.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -17,6 +19,16 @@ public class Hospedaje extends Plan {
 	private String boucher;
 	@Column(nullable=false)
 	private String ubicacion;
+	
+	public Hospedaje(String nombre, Date inicio, Date fin, Viaje viaje, int cantHabitaciones, String boucher, String ubicacion) {
+		super(nombre, inicio, fin, viaje);
+		this.cantHabitaciones = cantHabitaciones;
+		this.boucher = boucher;
+		this.ubicacion = ubicacion;
+	}
+		
+	
+
 
 	
 }
