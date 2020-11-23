@@ -49,23 +49,33 @@
         let data = null;
         getData();
 
-        async function getData() {
-            // let token = sessionStorage.getItem('token');
-            // console.log(token);
-            let r = await fetch(baseURL + "/viaje/",{
+        function getData() {
+            let token = sessionStorage.getItem('token');
+            let http_headers = {  'Content-Type': 'Application/json', 'Authorization': token, 'Accept': 'Application/json'}
+            // console.log(http_headers);
+            const myRequest = new Request(baseURL + "/viaje/",{
+            method: 'GET',
             mode: 'no-cors',
-            headers:{   'Content-Type': 'application/json',
-                        'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0MDEiLCJzdWIiOiJtYXJ0aW5AYXJxdWkuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTYwNjE2MDg1NSwiZXhwIjoxNjA2MTYxNDU1fQ.ASRiAGMSQ0J8K51RoA7t80J7lZxOW0n-9EB-uDhZjy2QqtKmk8M_wCT1i4exMj4Pi80x3xVMDTD5twjJQJDcew'}
-            }
-            );
-            // console.log(r);
-            let json = await r.json();
-            data = await json;
-            console.log(data);
-            showData(data);
+            headers: new Headers(http_headers),
+            });
+            fetch(myRequest)
+                .then(response => response.json())
+                .then(r => {
+                     console.log(r);
+                     showData(data);
+            });
         }
+            // const token =  sessionStorage.getItem('token');
+            //     fetch(baseURL + "/viaje/", {
+            //     headers: {
+            //         Authorization: `token ${token}`
+            //     }
+            //     })
+            //     .then(res => res.json())
+            //     .then(json => console.log(json));
+            //             }
 
-        async function showData(data) {
+        function showData(data) {
             $('#tablaViajes').DataTable({
                 data: data,
                 columns: [{
