@@ -61,15 +61,12 @@ public class ViajeController {
 	}
 
 	@GetMapping("/")
-	public ResponseEntity<Viaje> getViaje() throws Exception { 
+	public ResponseEntity<Iterable<Viaje>> getViaje() throws Exception { 
 		Long id = Long.parseLong((String) SecurityContextHolder.getContext().getAuthentication().getDetails());
-		Optional<Viaje> v = repositoryViaje.findById(id);
-		
-		if (v.isPresent()) 
-			return ResponseEntity.ok().body(v.get());
-		else {
-			throw new ViajeNotFoundException("El viaje de ese id no existe: " + id);
-		}
+		Iterable<Viaje> v = repositoryViaje.findByUsuario(id);
+//		System.out.println(v);
+		return ResponseEntity.ok().body(v);
+
 	}
 
 

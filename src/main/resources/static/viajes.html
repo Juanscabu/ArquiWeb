@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Entregable Nº4</title>
-    <script type="text/javascript" src="./js/main.js"></script>
+    <!-- <script type="text/javascript" src="./js/main.js"></script> -->
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
@@ -17,62 +17,67 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Arquitecturas Web - Entregable Nº4</a>
+        <a class="navbar-brand" href="#">Arquitecturas Web</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="index.html">Reports</a>
-                <a class="nav-link" href="product.html">Products</a>
-                <a class="nav-link" href="client.html">Clients</a>
-                <a class="nav-link active" href="bill.html">Bills<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Login</a>
+                <a class="nav-link actives" href="viajes.html">Mis Viajes<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="registro.html">Registrar</a>
+                <a class="nav-link" href="reportes.html">Reportes</a>   
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1>Bills</h1>
-        <table class="table" id="tablaBill">
+        <h1>Mis Viajes</h1>
+        <table class="table" id="tablaViajes">
             <thead>
                 <tr>
-                    <th>idBill</th>
-                    <th>Date</th>
-                    <th>idClient</th>
-                    <th>Dni</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-
+                    <th>Nombre</th>
+                    <th>Ciudad de Destino</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                    <th>Descripcion</th>
                 </tr>
             </thead>
         </table>
     </div>
     <script>
-        // let baseURL = "http://localhost:8080";
+        let baseURL = "http://localhost:8080";
         let data = null;
         getData();
 
         async function getData() {
-            let r = await fetch(baseURL + "/bill/");
+            let token = sessionStorage.getItem('token');
+            console.log(token);
+            let r = await fetch(baseURL + "/viaje/",{
+            mode: 'no-cors',
+            headers:{   'Content-Type': 'application/json',
+                        'Authorization' : 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0MDEiLCJzdWIiOiJtYXJ0aW5AYXJxdWkuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTYwNjE2MDg1NSwiZXhwIjoxNjA2MTYxNDU1fQ.ASRiAGMSQ0J8K51RoA7t80J7lZxOW0n-9EB-uDhZjy2QqtKmk8M_wCT1i4exMj4Pi80x3xVMDTD5twjJQJDcew'}
+            }
+            );
+            // console.log(r);
             let json = await r.json();
             data = await json;
+            console.log(data);
             showData(data);
         }
 
         async function showData(data) {
-            $('#tablaBill').DataTable({
+            $('#tablaViajes').DataTable({
                 data: data,
                 columns: [{
-                    "data": "idBill"
+                    "data": "nombre"
                 }, {
-                    "data": "date"
+                    "data": "ciudadDestino"
                 }, {
-                    "data": "client.idClient"
+                    "data": "fechaInicio"
                 }, {
-                    "data": "client.dni"
+                    "data": "fechaFin"
                 }, {
-                    "data": "client.name"
-                }, {
-                    "data": "client.surname"
+                    "data": "descripcion"
                 }]
             });
         }

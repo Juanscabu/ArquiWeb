@@ -38,7 +38,7 @@ public class LoginController {
 	}
 
 	@PostMapping("")
-	public ResponseEntity<Usuario> login(@RequestParam("email") String email, @RequestParam("contrasenia") String contrasenia) {	
+	public Usuario login(@RequestParam("email") String email, @RequestParam("contrasenia") String contrasenia) {	
 		Optional<Usuario> u = repositoryUsuario.findByEmail(email);
 		if (u.isPresent()){
 			if (u.get().getContrasenia().equals(contrasenia)) {
@@ -46,7 +46,8 @@ public class LoginController {
 				Usuario user = new Usuario();
 				user.setEmail(email);
 				user.setToken(token);		
-				return ResponseEntity.ok().body(user);
+				System.out.println(user);
+				return user;
 			} else 
 			 throw new LoginNotFoundException("La contraseña incorrecta");
 		}
