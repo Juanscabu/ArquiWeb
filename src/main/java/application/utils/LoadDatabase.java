@@ -34,7 +34,7 @@ class LoadDatabase {
     private static final String log = null;
 //Carga de datos
 //	Usuarios
-	/*@Bean
+	@Bean
 	CommandLineRunner initUsuarios(@Qualifier("usuarioRepository") UsuarioRepository usuarioRepository) {
 		return args -> {
 			try {
@@ -135,5 +135,5 @@ class LoadDatabase {
 				e.printStackTrace();
 			}
 		};
-	}*/
+	}
 }
