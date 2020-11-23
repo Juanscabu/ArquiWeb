@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.controller.PlanController.PlanNotFoundException;
 import application.model.ReporteViaje;
 import application.model.Usuario;
 import application.model.Viaje;
@@ -51,14 +52,12 @@ public class ViajeController {
 	}    
 
 	@PostMapping("/")
-	public Viaje newViaje(@RequestBody Viaje v) {
-		Viaje viaje = new Viaje();
-		viaje.setNombre(v.getNombre());
-		viaje.setCiudadDestino(v.getCiudadDestino());
-		viaje.setDescripcion(v.getDescripcion());
-		viaje.setFechaInicio(v.getFechaInicio());
-		viaje.setFechaFin(v.getFechaFin());
-		return repositoryViaje.save(v);
+	public ResponseEntity<Viaje> newViaje(@RequestBody Viaje v) {
+		 Optional<Viaje> nuevoViaje = repositoryViaje.findById(v.getId());
+   	  	if (!nuevoViaje.isPresent())
+   		  return  ResponseEntity.ok().body(repositoryViaje.save(v));
+   	
+   	  throw new PlanNotFoundException("El usuario con ese id ya existe : " + v.getId());
 	}
 
 	@GetMapping("/")
@@ -79,7 +78,9 @@ public class ViajeController {
 		Optional<Usuario> usuario = repositoryUsuario.findById(id);
 		if (usuario.isPresent()) {
 			Iterable<Viaje> viajes = repositoryViaje.findByUsuario(id);
-			return viajes;
+			if (!viajes.iterator().hasNext())
+				return viajes;
+			throw new ViajeNotFoundException("El Usuario de ese id no tiene viajes: " + id);
 		}
 		else { 
 			throw new ViajeNotFoundException("El Usuario de ese id no existe: " + id);
@@ -91,8 +92,9 @@ public class ViajeController {
 		Optional<Usuario> usuario = repositoryUsuario.findById(id);
 		if (usuario.isPresent()) {
 			Iterable<Viaje> viajes = repositoryViaje.findByUsuarioAndUbicacion(id,ubicacion);
-			return viajes;
-			//agregar throw viaje vacio
+			if (!viajes.iterator().hasNext())
+				return viajes;
+			throw new ViajeNotFoundException("El Usuario de ese id no tiene viajes: " + id);
 		}
 		else { 
 			throw new ViajeNotFoundException("El Usuario de ese id no existe: " + id);
@@ -108,29 +110,6 @@ public class ViajeController {
 			throw new ViajeNotFoundException("No existen viajes");
 		}
 	}
-
-	/*
-    @PutMapping("/{id}")
-    public ResponseEntity<Viaje> replaceViaje(@RequestBody Viaje newViaje, @PathVariable Long id) {
- 	   Optional<Viaje> v = repositoryViaje.findById(id);
-  	  if (v.isPresent()) {
-      			return  ResponseEntity.ok().body(v.map(Viaje -> {
-                  Viaje.setNombre(newViaje.getNombre());
-                  return repositoryViaje.save(Viaje);
-              })
-              .orElseGet(() -> {
-                  //newCliente.setId(id);
-                  return repository.save(newViaje);
-              }));
-  	  } 
-  	  else {
-  		  throw new ViajeNotFoundException("El viaje a modificar con ese id no existe: " + id);
-  	  }
-    }
-	 */  
-
-
-
 
 	@DeleteMapping("/{id}")
 	void deleteViaje(@PathVariable Long id) {

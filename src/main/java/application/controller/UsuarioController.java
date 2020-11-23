@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import application.controller.PlanController.PlanNotFoundException;
 import application.controller.ViajeController.ViajeNotFoundException;
-import application.model.Plan;
 import application.model.Usuario;
 import application.repository.UsuarioRepository;
 
@@ -66,7 +65,7 @@ public class UsuarioController {
 	    	  if (!nuevoUsuario.isPresent())
 	    		  return  ResponseEntity.ok().body(repository.save(u));
 	    	
-	    	  throw new PlanNotFoundException("El vuelo con ese id ya existe : " + u.getId());
+	    	  throw new PlanNotFoundException("El usuario con ese id ya existe : " + u.getId());
  		}
 
 
