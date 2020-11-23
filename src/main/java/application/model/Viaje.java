@@ -26,11 +26,11 @@ public class Viaje {
 	private String nombre;
 	@Column(nullable=false)
 	private String ciudadDestino;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Usuario usuario;
 	@JsonIgnore
-	@OneToMany(mappedBy="viaje", fetch=FetchType.LAZY)
-	private List<Plan> planes;
+	@OneToMany(mappedBy="viaje", fetch=FetchType.EAGER)
+	private transient List<Plan> planes;
 	@Column(nullable=false)
 	private Date fechaInicio;
 	@Column(nullable=false)
@@ -50,8 +50,6 @@ public class Viaje {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
-	}
-
-	
+	}	
 
 }

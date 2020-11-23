@@ -50,8 +50,8 @@
         getData();
 
         async function getData() {
-            let token = sessionStorage.getItem('token');
-            console.log(token);
+            // let token = sessionStorage.getItem('token');
+            // console.log(token);
             let r = await fetch(baseURL + "/viaje/",{
             mode: 'no-cors',
             headers:{   'Content-Type': 'application/json',

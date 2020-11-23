@@ -62,15 +62,15 @@
         async function login(e) {
             e.preventDefault();
             // let form = new FormData(document.getElementById('login-form');
-            let r = await fetch(baseURL + "/login?email=martin@arqui.com&contrasenia=dale",{
+            let r = await fetch(baseURL + "/login?email=augue.ac.ipsum@utodiovel.co.uk&contrasenia=FOM68GLN1VD",{
             method: 'POST',
             mode: 'no-cors',
             headers:{  'Content-Type': 'application/json'}
             })
-            let json = await  r.json();
+            let json = await r.json();
             data = await r;
-            console.log(data);
-            console.log(data.token);
+            console.log(r.token);
+            // console.log(data.token);
             let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0MDEiLCJzdWIiOiJtYXJ0aW5AYXJxdWkuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTYwNjE1NzIzMCwiZXhwIjoxNjA2MTU3ODMwfQ.djNHZjW7UqFJ1gqF3id2CmJunwL3lJqnpTX_G0a1hRgPh2wJrMUme_c3NRRnkk7KM-BD_FuQhUkRbU5XpeuMPw";
             sessionStorage.setItem('token',token);
         }
