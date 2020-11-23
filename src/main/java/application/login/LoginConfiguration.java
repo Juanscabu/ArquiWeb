@@ -1,5 +1,6 @@
 package application.login;
 
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import application.login.JWTAuthorizationFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -24,7 +24,10 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
 			.antMatchers(HttpMethod.GET, "/index.html").permitAll()
+			.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
+			.antMatchers(HttpMethod.GET, "/v2/api-docs").permitAll()
 			//.antMatchers(HttpMethod.GET, "/oldman").hasAuthority("LINK") // Esta línea es otra manera de agregar requerimientos de logeo.
 			.anyRequest().authenticated();
 	}
+	
 }
