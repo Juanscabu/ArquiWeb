@@ -52,6 +52,4 @@ public class Viaje {
 		this.descripcion = descripcion;
 	}
 
-	
-
 }

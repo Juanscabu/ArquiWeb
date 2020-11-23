@@ -26,9 +26,5 @@ public class Hospedaje extends Plan {
 		this.boucher = boucher;
 		this.ubicacion = ubicacion;
 	}
-		
-	
-
-
 	
 }

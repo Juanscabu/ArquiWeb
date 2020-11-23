@@ -1,7 +1,5 @@
 package application.model;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.List;
 
 
 import javax.persistence.Column;
@@ -42,7 +40,5 @@ public abstract class Plan {
 		this.fin = fin;
 		this.viaje = viaje;
 	}
-	
-	
 	
 }

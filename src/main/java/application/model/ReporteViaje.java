@@ -32,6 +32,5 @@ public class ReporteViaje {
 		this.viajes = viajes;
 	}
 
-
 }
 
