@@ -27,9 +27,9 @@ public class Usuario {
 	private String email;
 	@Column(nullable=false)
 	private String contrasenia;
-	@OneToMany(mappedBy="usuario", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="usuario", fetch=FetchType.EAGER)
 	@JsonIgnore
-	private List<Viaje> viajes;
+	private transient List<Viaje> viajes;
 	
 	private transient String token;
 	

@@ -23,6 +23,7 @@ public class LoginConfiguration extends WebSecurityConfigurerAdapter {
 			.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 			.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
+			.antMatchers(HttpMethod.GET, "/index.html").permitAll()
 			//.antMatchers(HttpMethod.GET, "/oldman").hasAuthority("LINK") // Esta línea es otra manera de agregar requerimientos de logeo.
 			.anyRequest().authenticated();
 	}

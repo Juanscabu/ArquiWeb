@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 class LoadDatabase {
 
-//    private static final String log = null;
+    private static final String log = null;
 //Carga de datos
 //	Usuarios
 	/*@Bean
@@ -64,6 +64,7 @@ class LoadDatabase {
 											new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaInicio")).getTime()),
 									new Date(new SimpleDateFormat("dd/mm/yyyy").parse(row.get("fechaFin")).getTime()),
 									row.get("descripcion"))));
+//					break:
 				}
 
 			} catch (IOException e) {
@@ -72,8 +73,8 @@ class LoadDatabase {
 		};
 	}
 	 
-	// definir viaje primero
-//	Plan - Actividades
+//	// definir viaje primero
+////	Plan - Actividades
 	@Bean
 	CommandLineRunner initActividades(@Qualifier("planRepository") PlanRepository planRepository,
 			@Qualifier("actividadRepository") ActividadRepository actividadRepository,@Qualifier("viajeRepository") ViajeRepository viajeRepository) {

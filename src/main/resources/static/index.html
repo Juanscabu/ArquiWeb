@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Entregable Nº4</title>
-    <script type="text/javascript" src="./js/main.js"></script>
+    <!-- <script type="text/javascript" src="./js/main.js"></script> -->
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
@@ -25,14 +25,26 @@
                 <a class="nav-link active" href="index.html">Login<span class="sr-only">(current)</span></a>
                 <a class="nav-link " href="viajes.html">Mis Viajes</a>
                 <a class="nav-link" href="registro.html">Registrar</a>
-                <a class="nav-link" href="reportes.html">Reportes</a>
+                <a class="nav-link" href="reportes.html">Reportes</a>   
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1>Report</h1>
-        <h2>Ventas por dia</h2>
-        <table class="table" id="tablaSales">
+        <h1>Login</h1>
+        <h2>Ingresar usuario y contraseña</h2>
+        <form>
+            <div id="login-form" class="form-group">
+              <label for="exampleInputEmail1">Email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Contraseña</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" id="login" class="btn btn-primary">Enviar</button>
+          </form>
+        <!-- <table class="table" id="tablaSales">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -40,18 +52,27 @@
 
                 </tr>
             </thead>
-        </table>
+        </table> -->
     </div>
     <script>
-        // let baseURL = "http://localhost:8080";
+        let baseURL = "http://localhost:8080";
         let data = null;
-        getData();
+        document.querySelector("#login").addEventListener("click",login);
 
-        async function getData() {
-            let r = await fetch(baseURL + "/billDetails/sales");
+        async function login(e) {
+            e.preventDefault();
+            // let form = new FormData(document.getElementById('login-form');
+            let r = await fetch(baseURL + "/login?email=augue.ac.ipsum@utodiovel.co.uk&contrasenia=FOM68GLN1VD",{
+            method: 'POST',
+            mode: 'no-cors',
+            headers:{  'Content-Type': 'application/json'}
+            })
             let json = await r.json();
-            data = await json;
-            showData(data);
+            data = await r;
+            console.log(r.token);
+            // console.log(data.token);
+            let token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0MDEiLCJzdWIiOiJtYXJ0aW5AYXJxdWkuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTYwNjE1NzIzMCwiZXhwIjoxNjA2MTU3ODMwfQ.djNHZjW7UqFJ1gqF3id2CmJunwL3lJqnpTX_G0a1hRgPh2wJrMUme_c3NRRnkk7KM-BD_FuQhUkRbU5XpeuMPw";
+            sessionStorage.setItem('token',token);
         }
 
         async function showData(data) {
@@ -65,57 +86,57 @@
             });
         }
 
-        let dato = null;
-        getDataa();
-        async function getDataa() {
-            let r = await fetch(baseURL + "/billDetails/bestSeller");
-            let json = await r.json();
-            dato = await json;
-            showDataa(data);
-        }
+        // let dato = null;
+        // getDataa();
+        // async function getDataa() {
+        //     let r = await fetch(baseURL + "/billDetails/bestSeller");
+        //     let json = await r.json();
+        //     dato = await json;
+        //     showDataa(data);
+        // }
 
-        async function showDataa(data) {
-            $('#tablaBestSeller').DataTable({
-                data: dato,
-                columns: [{
-                    data: 'idProduct'
-                }, {
-                    data: 'name'
-                }, {
-                    data: 'price'
-                }, {
-                    data: 'details'
-                }]
-            });
-        }
+        // async function showDataa(data) {
+        //     $('#tablaBestSeller').DataTable({
+        //         data: dato,
+        //         columns: [{
+        //             data: 'idProduct'
+        //         }, {
+        //             data: 'name'
+        //         }, {
+        //             data: 'price'
+        //         }, {
+        //             data: 'details'
+        //         }]
+        //     });
+        // }
 
-        let dato3 = null;
-        getData3();
-        async function getData3() {
-            let r = await fetch(baseURL + "/billDetails/comprasClients");
-            let json = await r.json();
-            dato3 = await json;
-            showData3(data);
-        }
+        // let dato3 = null;
+        // getData3();
+        // async function getData3() {
+        //     let r = await fetch(baseURL + "/billDetails/comprasClients");
+        //     let json = await r.json();
+        //     dato3 = await json;
+        //     showData3(data);
+        // }
 
-        async function showData3(data) {
-            $('#tablaCompra').DataTable({
-                data: dato3,
-                columns: [{
-                    data: 0
-                }, {
-                    data: 1
-                }, {
-                    data: 2
-                }, {
-                    data: 3
-                }, {
-                    data: 4
-                }]
-            });
-        }
+        // async function showData3(data) {
+        //     $('#tablaCompra').DataTable({
+        //         data: dato3,
+        //         columns: [{
+        //             data: 0
+        //         }, {
+        //             data: 1
+        //         }, {
+        //             data: 2
+        //         }, {
+        //             data: 3
+        //         }, {
+        //             data: 4
+        //         }]
+        //     });
+        // }
 
-        console.log(dato3);
+        // console.log(dato3);
     </script>
 
     <div class="container">
