@@ -51,12 +51,11 @@
 
         function getData() {
             let token = sessionStorage.getItem('token');
-            let http_headers = {  'Content-Type': 'Application/json', 'Authorization': token, 'Accept': 'Application/json'}
-            // console.log(http_headers);
+            console.log(token);
             const myRequest = new Request(baseURL + "/viaje/",{
             method: 'GET',
             mode: 'no-cors',
-            headers: new Headers(http_headers),
+            headers:{  'Content-Type': 'application/json', 'Authorization': token}
             });
             fetch(myRequest)
                 .then(response => response.json())

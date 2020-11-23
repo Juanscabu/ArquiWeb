@@ -34,20 +34,20 @@ class LoadDatabase {
     private static final String log = null;
 //Carga de datos
 //	Usuarios
-	@Bean
-	CommandLineRunner initUsuarios(@Qualifier("usuarioRepository") UsuarioRepository usuarioRepository) {
-		return args -> {
-			try {
-				CSVParser usuariosCSV = CSVFormat.DEFAULT.withHeader().parse(new FileReader("csv/usuarios.csv"));
-				for (CSVRecord row : usuariosCSV) {
-					System.out.println("Preloading " + usuarioRepository
-							.save(new Usuario(row.get("nombre"), row.get("email"), row.get("contrasenia"))));
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		};
-	}
+//	@Bean
+//	CommandLineRunner initUsuarios(@Qualifier("usuarioRepository") UsuarioRepository usuarioRepository) {
+//		return args -> {
+//			try {
+//				CSVParser usuariosCSV = CSVFormat.DEFAULT.withHeader().parse(new FileReader("csv/usuarios.csv"));
+//				for (CSVRecord row : usuariosCSV) {
+//					System.out.println("Preloading " + usuarioRepository
+//							.save(new Usuario(row.get("nombre"), row.get("email"), row.get("contrasenia"))));
+//				}
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//		};
+//	}
 
 	
 	@Bean

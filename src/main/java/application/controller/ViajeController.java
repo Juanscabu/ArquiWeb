@@ -64,7 +64,7 @@ public class ViajeController {
 	public ResponseEntity<Iterable<Viaje>> getViaje() throws Exception { 
 		Long id = Long.parseLong((String) SecurityContextHolder.getContext().getAuthentication().getDetails());
 		Iterable<Viaje> v = repositoryViaje.findByUsuario(id);
-		System.out.println(v);
+//		System.out.println(v);
 		return ResponseEntity.ok().body(v);
 
 	}
