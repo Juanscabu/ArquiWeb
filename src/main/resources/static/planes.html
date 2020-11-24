@@ -31,14 +31,29 @@
     </nav>
     <div class="container">
         <h1>Mis Planes</h1>
-        <table class="table" id="tablaViajes">
+        <h2>Planes de hospedaje</h2>
+        <table class="table" id="planesHospedaje">
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Ciudad de Destino</th>
                     <th>Fecha de Inicio</th>
                     <th>Fecha de Fin</th>
-                    <th>Descripcion</th>
+                    <th>Cantidad de habitaciones</th>
+                    <th>Boucher</th>
+                    <th>Ubicacion</th>
+                </tr>
+            </thead>
+
+        </table>
+
+        <h2>Planes de actividad</h2>
+        <table class="table" id="planesActividad">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                    <th>Ubicacion</th>
                 </tr>
             </thead>
         </table>
@@ -54,7 +69,7 @@
             const myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/json');
             myHeaders.append('Authorization', token);
-            const myRequest = new Request(baseURL + "/plan/", {
+            const myRequest = new Request(baseURL + "/plan/hospedajes", {
                 method: 'GET',
                 // mode: 'no-cors',
                 credentials: 'omit',
@@ -63,40 +78,65 @@
             fetch(myRequest)
                 .then(response => response.json())
                 .then(data => {
-                    showData(data);
+                    showData(data)
                 });
+
+            function showData(data) {
+                $('#planesHospedaje').DataTable({
+                    data: data,
+                    columns: [{
+                        "data": "nombre"
+                    }, {
+                        "data": "inicio"
+                    }, {
+                        "data": "fin"
+                    }, {
+                        "data": "cantHabitaciones"
+                    }, {
+                        "data": "boucher"
+                    }, {
+                        "data": "ubicacion"
+                    }]
+                });
+            }
         }
 
-        function showData(data) {
-            $('#tablaViajes').DataTable({
-                data: data,
-                columns: [{
-                    "data": "nombre"
-                }, {
-                    "data": "ciudadDestino"
-                }, {
-                    "data": "fechaInicio"
-                }, {
-                    "data": "fechaFin"
-                }, {
-                    "data": "descripcion"
-                }]
+        getDataActividades();
+
+        function getDataActividades() {
+            let token = sessionStorage.getItem('token');
+            console.log(token);
+            const myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+            myHeaders.append('Authorization', token);
+            const myRequest = new Request(baseURL + "/plan/actividades", {
+                method: 'GET',
+                // mode: 'no-cors',
+                credentials: 'omit',
+                headers: myHeaders
             });
+            fetch(myRequest)
+                .then(response => response.json())
+                .then(data => {
+                    showDataActividad(data)
+                });
+
+            function showDataActividad(data) {
+                $('#planesActividad').DataTable({
+                    data: data,
+                    columns: [{
+                        "data": "nombre"
+                    }, {
+                        "data": "inicio"
+                    }, {
+                        "data": "fin"
+                    }, {
+                        "data": "ubicacion"
+                    }]
+                });
+            }
         }
     </script>
-    <!-- Agregar producto -->
-    <!-- <form action="/bill/" method="post">
-        <h2>Add new bill</h2>
-        <div class="form-group">
-            <input class="form-control" type="date" name="date" placeholder="Date">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="number" name="idClient" id="" placeholder="idClient">
-        </div>
-        <button class="btn btn-primary" type="submit" id="submit-nuevo-estudiante" value="submit">Enviar</button>
-    </form> -->
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
