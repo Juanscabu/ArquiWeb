@@ -52,16 +52,14 @@
         function getData() {
             let token = sessionStorage.getItem('token');
             console.log(token);
+            const myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+            myHeaders.append('Authorization', token);
             const myRequest = new Request(baseURL + "/viaje/",{
-            method: 'GET',
-            mode: 'no-cors',
-            credentials: 'include',
-            headers:{
-            // 'Content-Type': 'application/json', 
-            'Authorization': token,
-            // 'cookie' : 'JSESSIONID=EFFC40975F99824571EF63BF5EEA5E3E',
-            // 'Cache-Control' : 'no-cache'
-        }
+                method: 'GET',
+                mode: 'no-cors',
+                credentials: 'omit',
+                headers: myHeaders
             });
             fetch(myRequest)
                 .then(response => response.json())
@@ -70,16 +68,7 @@
                      showData(data);
             });
         }
-            // const token =  sessionStorage.getItem('token');
-            //     fetch(baseURL + "/viaje/", {
-            //     headers: {
-            //         Authorization: `token ${token}`
-            //     }
-            //     })
-            //     .then(res => res.json())
-            //     .then(json => console.log(json));
-            //             }
-
+        
         function showData(data) {
             $('#tablaViajes').DataTable({
                 data: data,
