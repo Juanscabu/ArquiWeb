@@ -21,6 +21,11 @@ public class Actividad extends Plan {
 	public Actividad(String nombre, Date inicio, Date fin, Viaje viaje,  String ubicacion) {
 		super(nombre, inicio, fin, viaje);
 		this.ubicacion=ubicacion;
+	}
+
+
+	public Actividad() {
+		super();
 	}	
 	
 }

@@ -31,40 +31,46 @@
     </nav>
     <div class="container">
         <h1>Clients</h1>
-        <table class="table" id="tablaClient">
+        <table class="table" id="zonaVisitadas">
             <thead>
                 <tr>
-                    <th>idClient</th>
-                    <th>Dni</th>
-                    <th>Name</th>
-                    <th>Surname</th>
+                    <th>Zonas más visitadas</th>
+                    <th>Cantidad de visitas</th>
                 </tr>
             </thead>
         </table>
     </div>
     <script>
-        // let baseURL = "http://localhost:8080";
+        let baseURL = "http://localhost:8080";
         let data = null;
         getData();
 
-        async function getData() {
-            let r = await fetch(baseURL + "/client/");
-            let json = await r.json();
-            data = await json;
-            showData(data);
+        function getData() {
+            let token = sessionStorage.getItem('token');
+            console.log(token);
+            const myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+            myHeaders.append('Authorization', token);
+            const myRequest = new Request(baseURL + "/viaje/zonaVisitadas",{
+                method: 'GET',
+                // mode: 'no-cors',
+                credentials: 'omit',
+                headers: myHeaders
+            });
+            fetch(myRequest)
+                .then(response => response.json())
+                .then(data => {
+                     showData(data);
+            });
         }
 
-        async function showData(data) {
-            $('#tablaClient').DataTable({
+        function showData(data) {
+            $('#zonaVisitadas').DataTable({
                 data: data,
                 columns: [{
-                    "data": "idClient"
+                    "data": 0
                 }, {
-                    "data": "dni"
-                }, {
-                    "data": "name"
-                }, {
-                    "data": "surname"
+                    "data": 1
                 }]
             });
         }

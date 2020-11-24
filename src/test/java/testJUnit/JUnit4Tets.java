@@ -14,7 +14,7 @@ import application.model.Usuario;
 import application.repository.UsuarioRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class UsuarioTest {
+public class JUnit4Tets {
 
 	private static Usuario u;
 	private static UsuarioController uc;
@@ -43,4 +43,28 @@ public class UsuarioTest {
 		assertEquals(u,u1);
 	}
 
+	/*@Test
+	public void insertUsuarioTest() throws Exception {
+		UsuarioController uc = new UsuarioController(ur);
+		int cantActual = uc.getCount().size();
+		Usuario u1 = new Usuario("Juan", "juan@gmail.com", "1234");
+		uc.newUsuario(u1);
+		// Luego de agregar
+		int cantPosterior = uc.getCount().size();
+		System.out.println(cantActual);
+		System.out.println(cantPosterior);
+		assertEquals(cantActual + 1, cantPosterior);
+	}*/
+
+	//	@Test
+	//	void deleteUsuarioTest(@Qualifier("usuarioRepository") UsuarioRepository repositoryU) throws Exception {
+	//		int cantActual= repositoryU.getCount().size();
+	//		//Luego de agregar
+	//		Usuario u1= new Usuario("Juan", "juan@gmail.com","1234");
+	//		repositoryU.delete(u1);
+	//		int cantPosterior=repositoryU.getCount().size();
+	//	System.out.println(cantActual);
+	//	System.out.println(cantPosterior);
+	//		assertEquals(cantActual+1,cantPosterior);
+	//	}
 }
