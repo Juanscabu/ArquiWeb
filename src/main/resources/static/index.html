@@ -34,24 +34,16 @@
         <form>
             <div id="login-form" class="form-group">
               <label for="exampleInputEmail1">Email</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="email" value="augue.ac.ipsum@utodiovel.co.uk" aria-describedby="emailHelp">
               <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" id="contrasenia" value="xxxxxx">
             </div>
             <button type="submit" id="login" class="btn btn-primary">Enviar</button>
           </form>
-        <!-- <table class="table" id="tablaSales">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Mount</th>
 
-                </tr>
-            </thead>
-        </table> -->
     </div>
     <script>
         let baseURL = "http://localhost:8080";
@@ -60,7 +52,9 @@
 
         function login(e) {
             e.preventDefault();
-            const myRequest = new Request(baseURL + "/login?email=augue.ac.ipsum@utodiovel.co.uk&contrasenia=FOM68GLN1VD",{
+            let email = document.querySelector("#email").value;
+            let contrasenia = "FOM68GLN1VD";
+            const myRequest = new Request(baseURL + "/login?email="+email+"&contrasenia="+contrasenia,{
             method: 'POST',
             mode: 'no-cors',
             headers:{  'Content-Type': 'application/json'}
@@ -69,103 +63,13 @@
                 .then(response => response.json())
                 .then(r => {
                     sessionStorage.setItem('token',r.token);
-                     console.log(r.token);
+                    console.log(r.token);
+                    window.location.href = baseURL+"/viajes.html";
             });
         }
 
-        async function showData(data) {
-            $('#tablaSales').DataTable({
-                data: data,
-                columns: [{
-                    "data": 0
-                }, {
-                    "data": 1
-                }]
-            });
-        }
 
-        // let dato = null;
-        // getDataa();
-        // async function getDataa() {
-        //     let r = await fetch(baseURL + "/billDetails/bestSeller");
-        //     let json = await r.json();
-        //     dato = await json;
-        //     showDataa(data);
-        // }
-
-        // async function showDataa(data) {
-        //     $('#tablaBestSeller').DataTable({
-        //         data: dato,
-        //         columns: [{
-        //             data: 'idProduct'
-        //         }, {
-        //             data: 'name'
-        //         }, {
-        //             data: 'price'
-        //         }, {
-        //             data: 'details'
-        //         }]
-        //     });
-        // }
-
-        // let dato3 = null;
-        // getData3();
-        // async function getData3() {
-        //     let r = await fetch(baseURL + "/billDetails/comprasClients");
-        //     let json = await r.json();
-        //     dato3 = await json;
-        //     showData3(data);
-        // }
-
-        // async function showData3(data) {
-        //     $('#tablaCompra').DataTable({
-        //         data: dato3,
-        //         columns: [{
-        //             data: 0
-        //         }, {
-        //             data: 1
-        //         }, {
-        //             data: 2
-        //         }, {
-        //             data: 3
-        //         }, {
-        //             data: 4
-        //         }]
-        //     });
-        // }
-
-        // console.log(dato3);
     </script>
-
-    <div class="container">
-        <h2>Best seller</h2>
-        <table class="table" id="tablaBestSeller">
-            <thead>
-                <tr>
-                    <th>id Product</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-
-    <div class="container">
-        <h2>Total compras por cliente</h2>
-        <table class="table" id="tablaCompra">
-            <thead>
-                <tr>
-                    <th>idClient</th>
-                    <th>Dni</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Monto</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

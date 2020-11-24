@@ -41,4 +41,7 @@ public class Vuelo extends Plan {
 		this.infoAeronave = infoAeronave;
 	}
 	
+	public Vuelo (){
+		super();
+	}
 }
