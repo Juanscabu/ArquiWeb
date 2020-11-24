@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,15 +47,23 @@ public class PlanController {
 	        this.repositoryA= repositoryA;	        
 	    }
 	
-	    @GetMapping("/")
-	    public ResponseEntity<List<Plan>> getPlanes() {
-	    	List<Plan>listaPlanes = repository.findAll();
-	    	 if (!listaPlanes.isEmpty())
-	    		 return ResponseEntity.ok().body(listaPlanes);
-	    		 else {
-	    		throw new PlanNotFoundException("No existen planes");
-	    			 }
-	    		 }
+
+	@GetMapping("/")
+	public ResponseEntity<Iterable<Plan>> getPlanes() throws Exception { 
+		Long id = Long.parseLong((String) SecurityContextHolder.getContext().getAuthentication().getDetails());
+		Iterable<Plan> listaPlanes = repository.findByUsuario(id);
+		return ResponseEntity.ok().body(listaPlanes);
+
+	}
+//	    @GetMapping("/")
+//	    public ResponseEntity<List<Plan>> getPlanes() {
+//	    	List<Plan>listaPlanes = repository.findAll();
+//	    	 if (!listaPlanes.isEmpty())
+//	    		 return ResponseEntity.ok().body(listaPlanes);
+//	    		 else {
+//	    		throw new PlanNotFoundException("No existen planes");
+//	    			 }
+//	    		 }
 	    
 	  
 	    
