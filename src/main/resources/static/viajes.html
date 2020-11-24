@@ -55,7 +55,13 @@
             const myRequest = new Request(baseURL + "/viaje/",{
             method: 'GET',
             mode: 'no-cors',
-            headers:{  'Content-Type': 'application/json', 'Authorization': token}
+            credentials: 'include',
+            headers:{
+            // 'Content-Type': 'application/json', 
+            'Authorization': token,
+            // 'cookie' : 'JSESSIONID=EFFC40975F99824571EF63BF5EEA5E3E',
+            // 'Cache-Control' : 'no-cache'
+        }
             });
             fetch(myRequest)
                 .then(response => response.json())
