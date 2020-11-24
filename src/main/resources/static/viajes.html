@@ -57,14 +57,13 @@
             myHeaders.append('Authorization', token);
             const myRequest = new Request(baseURL + "/viaje/",{
                 method: 'GET',
-                mode: 'no-cors',
+                // mode: 'no-cors',
                 credentials: 'omit',
                 headers: myHeaders
             });
             fetch(myRequest)
                 .then(response => response.json())
-                .then(r => {
-                     console.log(r);
+                .then(data => {
                      showData(data);
             });
         }
