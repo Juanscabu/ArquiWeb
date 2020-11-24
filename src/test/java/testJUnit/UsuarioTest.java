@@ -42,5 +42,28 @@ class UsuarioTest {
 		System.out.println("soy u "+u);
 		assertEquals(u.getId(),u1.getId());
 	}
+	
+	@Test
+	void insertUsuarioTest(@Qualifier("usuarioRepository") UsuarioRepository repositoryU) throws Exception {
+		int cantActual= repositoryU.getCount().size();
+		//Luego de agregar
+		Usuario u1= new Usuario("Juan", "juan@gmail.com","1234");
+		repositoryU.save(u1);
+		int cantPosterior=repositoryU.getCount().size();
+	System.out.println(cantActual);
+	System.out.println(cantPosterior);
+		assertEquals(cantActual+1,cantPosterior);
+	}
 
+//	@Test
+//	void deleteUsuarioTest(@Qualifier("usuarioRepository") UsuarioRepository repositoryU) throws Exception {
+//		int cantActual= repositoryU.getCount().size();
+//		//Luego de agregar
+//		Usuario u1= new Usuario("Juan", "juan@gmail.com","1234");
+//		repositoryU.delete(u1);
+//		int cantPosterior=repositoryU.getCount().size();
+//	System.out.println(cantActual);
+//	System.out.println(cantPosterior);
+//		assertEquals(cantActual+1,cantPosterior);
+//	}
 }
