@@ -24,13 +24,13 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="index.html">Login</a>
                 <a class="nav-link" href="viajes.html">Mis Viajes</a>
-                <a class="nav-link" href="registro.html">Registrar</a>
+                <!-- <a class="nav-link" href="registro.html">Registrar</a> -->
                 <a class="nav-link active" href="reportes.html">Reportes<span class="sr-only">(current)</span></a>   
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1>Clients</h1>
+        <h1>Zonas más visitadas</h1>
         <table class="table" id="zonaVisitadas">
             <thead>
                 <tr>
@@ -39,19 +39,31 @@
                 </tr>
             </thead>
         </table>
+
+        <h1>Usuarios más viajeros</h1>
+        <table class="table" id="masViajeros">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+        </table>
+        masViajeros
     </div>
     <script>
         let baseURL = "http://localhost:8080";
         let data = null;
-        getData();
+        getDataZonasMasVisitadas();
+        getDataMasViajeros();
 
-        function getData() {
+        function getDataZonasMasVisitadas() {
             let token = sessionStorage.getItem('token');
             console.log(token);
             const myHeaders = new Headers();
             myHeaders.append('Content-Type', 'application/json');
             myHeaders.append('Authorization', token);
-            const myRequest = new Request(baseURL + "/viaje/zonaVisitadas",{
+            const myRequest = new Request(baseURL + "/viaje/zonasMasVisitadas",{
                 method: 'GET',
                 // mode: 'no-cors',
                 credentials: 'omit',
@@ -60,11 +72,11 @@
             fetch(myRequest)
                 .then(response => response.json())
                 .then(data => {
-                     showData(data);
+                     showDataZonasMasVisitadas(data);
             });
         }
 
-        function showData(data) {
+        function showDataZonasMasVisitadas(data) {
             $('#zonaVisitadas').DataTable({
                 data: data,
                 columns: [{
@@ -74,23 +86,36 @@
                 }]
             });
         }
+        function getDataMasViajeros() {
+            let token = sessionStorage.getItem('token');
+            console.log(token);
+            const myHeaders = new Headers();
+            myHeaders.append('Content-Type', 'application/json');
+            myHeaders.append('Authorization', token);
+            const myRequest = new Request(baseURL + "/usuario/masViajeros",{
+                method: 'GET',
+                // mode: 'no-cors',
+                credentials: 'omit',
+                headers: myHeaders
+            });
+            fetch(myRequest)
+                .then(response => response.json())
+                .then(data => {
+                     showDataMasViajeros(data);
+            });
+        }
+
+        function showDataMasViajeros(data) {
+            $('#masViajeros').DataTable({
+                data: data,
+                columns: [{
+                    "data": "nombre"
+                }, {
+                    "data": "email"
+                }]
+            });
+        }
     </script>
-    <!-- Agregar producto -->
-    <form action="/client/" method="post">
-        <h2>Add new client</h2>
-        <div class="form-group">
-            <input class="form-control" type="number" name="dni" placeholder="Dni">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" name="name" id="" placeholder="Name">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" name="surname" id="" placeholder="Surname">
-        </div>
-        <button class="btn btn-primary" type="submit" id="submit-nuevo-estudiante" value="submit">Enviar</button>
-    </form>
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
