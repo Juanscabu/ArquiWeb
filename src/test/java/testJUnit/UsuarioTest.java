@@ -2,7 +2,7 @@ package testJUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.BeforeClass;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
