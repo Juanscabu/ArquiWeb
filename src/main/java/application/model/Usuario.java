@@ -43,4 +43,14 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 	
+	@Override
+	public boolean equals(Object u) {
+		if (u instanceof Usuario) {
+			Usuario u1 = (Usuario) u;
+			return u1.getId() == this.getId();
+		} else {
+			return false;
+		}
+	}
+	
 }
