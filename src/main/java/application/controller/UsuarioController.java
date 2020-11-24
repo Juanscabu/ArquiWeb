@@ -48,6 +48,11 @@ public class UsuarioController {
 	    			 }
 	    		 }
 	    
+	    public List<Usuario> getCount() {
+	    	List<Usuario>listaPlanes = repository.getCount();
+	    	 return listaPlanes;
+	    		 }
+	    
 	    
 	    @GetMapping("/{id}")
 	     public ResponseEntity<Usuario> getUsuario(@PathVariable Long id) throws Exception { 
